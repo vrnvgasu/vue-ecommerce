@@ -1,6 +1,6 @@
 <template>
   <div class="v-catalog-item">
-    <img src="" alt="img">
+    <img class="v-catalog-item__image" v-bind:src=" require('../assets/images/' + product_data.image)" alt="img">
     <p class="v-catalog-item__name">{{product_data.name}}</p>
     <p class="v-catalog-item__price">Price: {{product_data.price}}</p>
     <button class="v-catalog-item__add_to_cart_btn btn">Add to cart</button>
@@ -28,5 +28,9 @@ export default {
     box-shadow: 0 0 8px 0 #e0e0e0;
     padding: $padding*2;
     margin-bottom: $margin*2;
+
+    &__image {
+      width: 100px;
+    }
   }
 </style>
