@@ -3,7 +3,11 @@
     <p>{{title}}</p>
     <v-catalog />
     <!--  v-if отображает элемент, если true  -->
-    <v-cart v-if="CART.length" />
+    <!--  :cart_data - тоже, что v-bind:cart_data - свяжи дочерний cart_data (props) с нашим CART (передаем) -->
+    <v-cart
+        v-if="CART.length"
+        :cart_data="CART"
+    />
   </div>
 </template>
 
