@@ -4,10 +4,12 @@
     <div class="v-catalog__list">
       <!-- должны указать уникальное значение для ключа -->
       <!-- product из массива связали с product_data из props дочернего компонента -->
+      <!-- связали метод sendArticle, вызываемый в ребенке(товаре) с методом родителя showChildArticleInConsole (каталог) -->
       <v-catalog-item
         v-for="product in products"
         :key="product.article"
         v-bind:product_data="product"
+        @sendArticle="showChildArticleInConsole"
       />
     </div>
   </div>
@@ -74,7 +76,12 @@ export default {
         }
       ]
     }
-  }
+  },
+   methods: {
+     showChildArticleInConsole(data) {
+       console.log(data);
+     }
+   }
 }
 </script>
 
