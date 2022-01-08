@@ -4,12 +4,12 @@
     <div class="v-catalog__list">
       <!-- должны указать уникальное значение для ключа -->
       <!-- product из массива связали с product_data из props дочернего компонента -->
-      <!-- связали метод sendArticle, вызываемый в ребенке(товаре) с методом родителя showChildArticleInConsole (каталог) -->
+      <!-- связали метод addToCart, вызываемый в ребенке(товаре) с методом родителя addToCart (каталог) -->
       <v-catalog-item
         v-for="product in PRODUCTS"
         :key="product.article"
         v-bind:product_data="product"
-        @sendArticle="showChildArticleInConsole"
+        @addToCart="addToCart"
       />
     </div>
   </div>
@@ -38,9 +38,10 @@ export default {
      ...mapActions([
        // сделали это, чтобы была возможность обратить к методу через this внутри компонента
        'GET_PRODUCTS_FROM_API',
+         'ADD_TO_CART',
      ]),
-     showChildArticleInConsole(data) {
-       console.log(data);
+     addToCart(data) {
+       this.ADD_TO_CART(data);
      }
    },
   mounted() {

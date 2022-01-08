@@ -7,7 +7,7 @@
     <!--  метод вешаем на @click  -->
     <button
         class="v-catalog-item__add_to_cart_btn btn"
-        @click="sendDataToParent">
+        @click="addToCart">
       Add to cart
     </button>
   </div>
@@ -25,11 +25,8 @@ export default {
     },
   },
   methods: {
-    sendDataToParent() {
-      // $emit - передает родителю
-      // sendArticle - вызываем метод в родителе
-      // this.product_data.article - передаем в вызываемый метод
-      this.$emit('sendArticle', this.product_data.article);
+    addToCart() {
+      this.$emit('addToCart', this.product_data);
     },
   }
 }

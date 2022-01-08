@@ -1,12 +1,18 @@
 <template>
   <div class="v-cart">
-    <h3>Cart</h3>
+    <h1>Cart</h1>
+    <v-cart-item />
   </div>
 </template>
 
 <script>
+import vCartItem from './v-cart-item';
+
 export default {
-  name: "v-cart"
+  name: "v-cart",
+  components: {
+    vCartItem
+  },
 }
 </script>
 

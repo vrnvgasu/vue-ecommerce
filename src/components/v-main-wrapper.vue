@@ -2,13 +2,15 @@
   <div class="v-main-wrapper">
     <p>{{title}}</p>
     <v-catalog />
-    <v-cart />
+    <!--  v-if отображает элемент, если true  -->
+    <v-cart v-if="CART.length" />
   </div>
 </template>
 
 <script>
 import vCatalog from './v-catalog';
 import vCart from './v-cart';
+import {mapGetters} from 'vuex';
 
 export default {
   // обязательный параметр – имя компонента
@@ -23,7 +25,11 @@ export default {
       title: 'Main wrapper', // можно отрендерить в темплейте {{title}}
     };
   },
-  computed: {}, // вычислительные свойства компонента
+  computed: { // вычислительные свойства компонента
+    ...mapGetters([
+      'CART',
+    ]),
+  },
   methods: {}, // методы логики: клики, скрытие, всплытие и др
   watch: {}, // может следить за событиями
   mounted() {   // хуки жизненного цикла. Пример на состояние после рендерига

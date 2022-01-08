@@ -7,11 +7,15 @@ Vue.use(Vuex);
 let store = new Vuex.Store( {
   state: { // здесь храним все что надо
     products: [],
+    cart: [],
   },
   mutations: { // здесь меняем данные из state (мутации синхронные)
     SET_PRODUCTS_TO_STATE: (state, products) => {
       state.products = products;
-    }
+    },
+    SET_CART: (state, product) => {
+      state.cart.push(product);
+    },
   },
   actions: { // работают асинхронно
     GET_PRODUCTS_FROM_API({commit}) {
@@ -29,11 +33,17 @@ let store = new Vuex.Store( {
           return error;
         })
     },
+    ADD_TO_CART({commit}, product) {
+      commit('SET_CART', product);
+    }
   },
   getters: { // дает возможность получить данные из state
     PRODUCTS(state) {
       return state.products;
-    }
+    },
+    CART(state) {
+      return state.cart;
+    },
   },
 });
 
