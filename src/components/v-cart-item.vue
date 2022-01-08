@@ -13,7 +13,10 @@
       <p>Qty:</p>
       {{cart_item_data.quantity}}
     </div>
-    <button>Delete</button>
+    <button
+      @click="deleteFromCart">
+      Delete
+    </button>
   </div>
 </template>
 
@@ -27,6 +30,12 @@ export default {
         return {};
       }
     }
+  },
+  methods: {
+    deleteFromCart() {
+      // поднимаем событие наверх
+      this.$emit('deleteFromCart');
+    },
   },
   mounted() {
     //  this.$set реактивно добавляет свойство quantity в нужный объект
