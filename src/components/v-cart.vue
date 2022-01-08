@@ -1,5 +1,7 @@
 <template>
-  <div class="v-cart"></div>
+  <div class="v-cart">
+    <h3>Cart</h3>
+  </div>
 </template>
 
 <script>

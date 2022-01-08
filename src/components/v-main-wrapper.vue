@@ -1,13 +1,22 @@
 <template>
   <div class="v-main-wrapper">
     <p>{{title}}</p>
+    <v-catalog />
+    <v-cart />
   </div>
 </template>
 
 <script>
+import vCatalog from './v-catalog';
+import vCart from './v-cart';
+
 export default {
-  name: "v-main-wrapper", // обязательный параметр – имя компонента
-  comments: {}, // тут перечисляются дочерние компоненты
+  // обязательный параметр – имя компонента
+  name: "v-main-wrapper",
+  components: { // тут перечисляются дочерние компоненты
+    vCatalog,
+    vCart,
+  },
   props: {},  // что прилетает из родителя
   data() {    // персональные данные компонента
     return {
@@ -31,5 +40,6 @@ export default {
     align-items: center;
     max-width: 900px;
     margin: 0 auto;
+    flex-direction: column;
   }
 </style>

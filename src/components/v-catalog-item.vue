@@ -1,5 +1,10 @@
 <template>
-  <div class="v-catalog-item"></div>
+  <div class="v-catalog-item">
+    <h3>Item</h3>
+    <p>Item 1</p>
+    <p>Price: 100</p>
+    <p>Add to cart</p>
+  </div>
 </template>
 
 <script>
