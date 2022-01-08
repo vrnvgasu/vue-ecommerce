@@ -1,15 +1,23 @@
 <template>
   <div class="v-catalog-item">
     <img src="" alt="img">
-    <p>Item 1</p>
-    <p>Price: 100</p>
-    <p>Add to cart</p>
+    <p class="v-catalog-item__name">{{product_data.name}}</p>
+    <p class="v-catalog-item__price">Price: {{product_data.price}}</p>
+    <button class="v-catalog-item__add_to_cart_btn btn">Add to cart</button>
   </div>
 </template>
 
 <script>
 export default {
-  name: "v-catalog-item"
+  name: "v-catalog-item",
+  props: {
+    product_data: {
+      type: Object, // присылаем объект из родительского компонента
+      default() {   // если ничего не пришло из родительского компонента
+        return {};
+      },
+    },
+  }
 }
 </script>
 
