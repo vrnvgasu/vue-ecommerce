@@ -35,11 +35,7 @@ export default {
 <!-- можно ставить <style scoped>, чтобы стили применялись всегда-->
 <style scoped>
   .v-main-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     max-width: 900px;
     margin: 0 auto;
-    flex-direction: column;
   }
 </style>

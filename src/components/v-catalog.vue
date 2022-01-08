@@ -1,7 +1,9 @@
 <template>
   <div class="v-catalog">
     <h3>Catalog</h3>
-    <v-catalog-item />
+    <div class="v-catalog__list">
+      <v-catalog-item />
+    </div>
   </div>
 </template>
 
@@ -16,6 +18,13 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
+  .v-catalog {
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
 </style>
