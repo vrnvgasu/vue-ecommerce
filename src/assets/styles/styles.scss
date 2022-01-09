@@ -1,5 +1,9 @@
 @import 'variables';
-$padding: 8px;
-$margin: 8px;
 
-$radius: 4px;
+.btn {
+  padding: $padding $padding*2;
+  background: $green-bg;
+  color: #ffffff;
+  border: 0;
+  border-right: $radius;
+}
