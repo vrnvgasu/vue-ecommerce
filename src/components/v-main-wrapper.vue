@@ -1,44 +1,26 @@
 <template>
   <div class="v-main-wrapper">
-    <p>{{title}}</p>
-    <v-catalog />
-    <!--  v-if отображает элемент, если true  -->
-    <!--  :cart_data - тоже, что v-bind:cart_data - свяжи дочерний cart_data (props) с нашим CART (передаем) -->
-    <v-cart
-        v-if="CART.length"
-        :cart_data="CART"
-    />
+    <!--  Если будем передавать данные не из vuex по url, то они слетят
+      keep-alive - позволяет сохранять состояние
+      -->
+    <keep-alive>
+      <!--   router-view - сюда будут помещаться компоненты в зависимости от роута   -->
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
 <script>
-import vCatalog from './v-catalog';
-import vCart from './v-cart';
 import {mapGetters} from 'vuex';
 
 export default {
   // обязательный параметр – имя компонента
   name: "v-main-wrapper",
-  components: { // тут перечисляются дочерние компоненты
-    vCatalog,
-    vCart,
-  },
   props: {},  // что прилетает из родителя
-  data() {    // персональные данные компонента
-    return {
-      title: 'Main wrapper', // можно отрендерить в темплейте {{title}}
-    };
-  },
   computed: { // вычислительные свойства компонента
-    ...mapGetters([
-      'CART',
-    ]),
   },
   methods: {}, // методы логики: клики, скрытие, всплытие и др
   watch: {}, // может следить за событиями
-  mounted() {   // хуки жизненного цикла. Пример на состояние после рендерига
-    console.log(('Hello'));
-  }
 }
 </script>
 
